@@ -1,21 +1,12 @@
 var http = require('http'),
     express = require('express'),
     mongoose = require('mongoose'),
+    db = require('./config/db_config'),
     charRoutes = require('./routes/characters'),
     bodyParser = require('body-parser');
 
 var port = 3000,
     app = express();
-
-// MONGO CONNECTION
-var urlString = 'mongodb://frmontini:a1a2a3a4@ds027145.mlab.com:27145/game_of_thrones';
-mongoose.connect(urlString, function(error, res) {
-    if (error) {
-        console.log('Não foi possivel conectar a: ' + urlString);
-    } else {
-        console.log('Conectado a: ' + urlString);
-    }
-});
 
 app.use(bodyParser.urlencoded({
     extended: true
