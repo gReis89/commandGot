@@ -1,12 +1,16 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    character;
 
-var characterSchema = new Schema({
-  name: String,
-  about: String,
-  likes: Number
-})
-
-var character = mongoose.model('characters',characterSchema);
+if (mongoose.models.Person) {
+    character = mongoose.model('Person');
+} else {
+    var characterSchema = new Schema({
+        name: String,
+        email: String,
+        message: String
+    });
+    character = mongoose.model('characters', PersonSchema);
+}
 
 module.exports = character;
