@@ -2,6 +2,10 @@ var express = require('express');
 var router = express.Router();
 var db = require('../config/db_config');
 var character = require('../models/characters');
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    ObjectIdSchema = Schema.ObjectId,
+    ObjectId = mongoose.Types.ObjectId;
 
 /* READ ALL CHARACTERS */
 router.get('/', function(req, res) {
