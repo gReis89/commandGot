@@ -15,7 +15,7 @@ router.get('/', function(req, res) {
 });
 
 /* ADD ONE LIKE TO A UNIQUE CHARACTER BY ID */
-router.post('/like/:id', function(req, res) {
+router.put('/like', function(req, res) {
     character.findByIdAndUpdate(req.body.id, {$inc: {likes:1}}, function(err, char) {
       if (err) throw err;
       res.json(char);
@@ -42,8 +42,8 @@ router.post('/add', function(req, res) {
 });
 
 /* REMOVE A CHARACTER BY ID */
-router.get('/remove/:id', function (req, res, next) {
-    character.remove({_id: req.params.id}, function(err,removed) {
+router.delete('/remove', function (req, res, next) {
+    character.remove({_id: req.body.id}, function(err,removed) {
       res.json(removed);
     });
 });
