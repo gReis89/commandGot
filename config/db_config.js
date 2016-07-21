@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
 
 //var urlString = 'mongodb://localhost/API';
-var urlString = 'mongodb://frmontini:a1a2a3a4@ds027145.mlab.com:27145/game_of_thrones';
+var urlString = 'mongodb://command:102030@ds027145.mlab.com:27145/game_of_thrones';
 
 mongoose.connect(urlString, function(error, res) {
     if (error) {
-        console.log('Não foi possivel conectar a: ' + urlString);
+        console.log(error);
+        console.log('But you forgot your coat =/');
     } else {
-        console.log('Conectado a: ' + urlString);
+        console.log('And you are connected!');
     }
 });
