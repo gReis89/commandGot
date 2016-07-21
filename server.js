@@ -1,9 +1,12 @@
 var http = require('http'),
     express = require('express'),
+    mongoose = require('mongoose'),
     bodyParser = require('body-parser');
 
 var port = 3000,
     app = express();
+
+var character = require('./models/characters');
 
 app.use(bodyParser.urlencoded({
     extended: true
