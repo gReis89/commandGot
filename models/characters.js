@@ -1,11 +1,11 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
-    ObjectIdSchema = Schema.ObjectId;
-    ObjectId = mongoose.Types.ObjectId;
+    ObjectIdSchema = Schema.ObjectId,
+    ObjectId = mongoose.Types.ObjectId,
     character;
 
-if (mongoose.models.Person) {
-    character = mongoose.model('Person');
+if (mongoose.models.Characters) {
+    character = mongoose.model('Characters');
 } else {
     var characterSchema = new Schema({
       _id  : ObjectIdSchema,
@@ -13,7 +13,7 @@ if (mongoose.models.Person) {
       about: String,
       likes: Number
     });
-    character = mongoose.model('characters', characterSchema);
+    character = mongoose.model('Characters', characterSchema);
 }
 
 module.exports = character;

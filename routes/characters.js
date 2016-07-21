@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var db = require('./config/db_config');
-var mod = require('./models/characters');
+var db = require('../config/db_config');
+var character = require('../models/characters');
 
 /* READ ALL CHARACTERS */
 router.get('/', function(req, res) {
