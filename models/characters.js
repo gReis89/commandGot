@@ -1,8 +1,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var ObjectIdSchema = Schema.ObjectId;
+var ObjectId = mongoose.Types.ObjectId;
 
 var characterSchema = new Schema({
-  name: String,
+  _id  : ObjectIdSchema,
+  name : String,
   about: String,
   likes: Number
 })

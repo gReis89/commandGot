@@ -1,6 +1,7 @@
 var http = require('http'),
     express = require('express'),
     mongoose = require('mongoose'),
+    db = require('config/db_config'),
     bodyParser = require('body-parser');
 
 var port = 3000,
