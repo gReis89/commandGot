@@ -1,0 +1,39 @@
+{
+  "name": "commandgot",
+  "version": "1.0.0",
+  "description": "A Command Alkon app based on Game Of Thrones",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gReis89/commandGot.git"
+  },
+  "keywords": [
+    "Command",
+    "Alkon",
+    "Game",
+    "of",
+    "Thrones"
+  ],
+  "author": "grodrigues@commandalkon.com, fmontini@commandalkon.com, rbertelli@commandalkon.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gReis89/commandGot/issues"
+  },
+  "homepage": "https://github.com/gReis89/commandGot#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.5.5"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.1",
+    "gulp-sass": "^2.3.2",
+    "mocha": "^2.5.3"
+  }
+}
