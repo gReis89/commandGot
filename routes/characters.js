@@ -15,8 +15,11 @@ router.get('/', function(req, res) {
 });
 
 /* ADD ONE LIKE TO A UNIQUE CHARACTER BY ID */
-router.post('/like:id', function(req, res) {
-    res.send('Post a character.');
+router.post('/like/:id', function(req, res) {
+    character.findByIdAndUpdate(req.body.id, {$inc: {likes:1}}, function(err, char) {
+      if (err) throw err;
+      res.json(char);
+    });
 });
 
 /* INSERT A NEW CHARACTER */
@@ -24,6 +27,7 @@ router.post('/add', function(req, res) {
     var newCharacter =
     {
       _id  : new ObjectId(),
+      path : req.body.path,
       name : req.body.char_name,
       about: req.body.about,
       likes: 0
@@ -34,6 +38,13 @@ router.post('/add', function(req, res) {
     {
       if (err) res.send(err);
       else res.json(data);
+    });
+});
+
+/* REMOVE A CHARACTER BY ID */
+router.get('/remove/:id', function (req, res, next) {
+    character.remove({_id: req.params.id}, function(err,removed) {
+      res.json(removed);
     });
 });
 

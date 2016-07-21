@@ -10,6 +10,7 @@ if (mongoose.models.Characters) {
     var characterSchema = new Schema({
       _id  : ObjectIdSchema,
       name : String,
+      path : String,
       about: String,
       likes: Number
     });
