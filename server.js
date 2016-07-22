@@ -5,7 +5,7 @@ var http = require('http'),
     charRoutes = require('./routes/characters'),
     bodyParser = require('body-parser');
 
-var port = 8080,
+var port = process.env.PORT || 8080,
     app = express();
 
 app.use(bodyParser.urlencoded({
