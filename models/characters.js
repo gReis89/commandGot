@@ -8,7 +8,7 @@ if (mongoose.models.Characters) {
     character = mongoose.model('Characters');
 } else {
     var characterSchema = new Schema({
-      _id   : ObjectIdSchema,
+      //_id   : ObjectIdSchema,
       name  : String,
       path  : String,
       about : String,
