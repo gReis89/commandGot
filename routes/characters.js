@@ -11,7 +11,7 @@ var mongoose = require('mongoose'),
 /*router.use('/:id', function(req, res, next) {
   var id = req.body.id
 
-  
+
 });*/
 
 /* READ ALL CHARACTERS */
