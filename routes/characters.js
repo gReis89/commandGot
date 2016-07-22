@@ -7,11 +7,31 @@ var mongoose = require('mongoose'),
     ObjectIdSchema = Schema.ObjectId,
     ObjectId = mongoose.Types.ObjectId;
 
+/*MIDDLEWARE TO QUANTIFY THE VIEWS*/
+/*router.use('/:id', function(req, res, next) {
+  var id = req.body.id
+
+  
+});*/
+
 /* READ ALL CHARACTERS */
 router.get('/', function(req, res) {
   character.find(function(err,characters){
     res.json(characters);
   })
+});
+
+/* READ A SPECIFIC CHARACTERS */
+router.get('/:id', function(req, res) {
+
+  var id = req.params.id;
+
+  character.findOne({_id: id}, function(err, char) {
+    if (err) throw err;
+    character.update({_id: id}, {$inc: {visits: 1}}, function(err, char) { if(err) throw err});
+    res.json(char);
+  });
+
 });
 
 /* ADD ONE LIKE TO A UNIQUE CHARACTER BY ID */

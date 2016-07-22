@@ -8,11 +8,12 @@ if (mongoose.models.Characters) {
     character = mongoose.model('Characters');
 } else {
     var characterSchema = new Schema({
-      _id  : ObjectIdSchema,
-      name : String,
-      path : String,
-      about: String,
-      likes: Number
+      _id   : ObjectIdSchema,
+      name  : String,
+      path  : String,
+      about : String,
+      likes : Number,
+      visits: Number
     });
     character = mongoose.model('Characters', characterSchema);
 }
