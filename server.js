@@ -5,7 +5,7 @@ var http = require('http'),
     charRoutes = require('./routes/characters'),
     bodyParser = require('body-parser');
 
-var port = 3000,
+var port = 8080,
     app = express();
 
 app.use(bodyParser.urlencoded({
