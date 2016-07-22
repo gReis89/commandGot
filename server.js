@@ -3,6 +3,7 @@ var http = require('http'),
     mongoose = require('mongoose'),
     db = require('./config/db_config'),
     charRoutes = require('./routes/characters'),
+    homeRouter = require('./routes/home'),
     bodyParser = require('body-parser');
 
 var port = process.env.PORT || 8080,
@@ -30,9 +31,10 @@ app.use(function(req, res, next) {
 });
 
 app.use('/characters', charRoutes);
+app.get('/', function(req, res) {
+    res.end("<h1>Welcome to CommandGOT API :)</h1>");
+});
 
 http.createServer(app).listen(port, function() {
     console.log("The winter is coming on port " + port);
 });
-
-debugger;
