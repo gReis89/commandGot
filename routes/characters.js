@@ -68,4 +68,12 @@ router.delete('/remove', function (req, res, next) {
     });
 });
 
+/* UPDATE A CHARACTER DATA */
+router.put('/update', function(req, res) {
+    character.findByIdAndUpdate(req.body.id, {name:req.body.char_name, about:req.body.about, path:req.body.path}, function(err, char) {
+      if (err) throw err;
+      res.json(char);
+    });
+});
+
 module.exports = router;
