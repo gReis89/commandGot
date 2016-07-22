@@ -7,13 +7,6 @@ var mongoose = require('mongoose'),
     ObjectIdSchema = Schema.ObjectId,
     ObjectId = mongoose.Types.ObjectId;
 
-/*MIDDLEWARE TO QUANTIFY THE VIEWS*/
-/*router.use('/:id', function(req, res, next) {
-  var id = req.body.id
-
-  
-});*/
-
 /* READ ALL CHARACTERS */
 router.get('/', function(req, res) {
   character.find(function(err,characters){
