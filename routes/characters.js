@@ -12,7 +12,7 @@ var mongoose = require('mongoose'),
 router.get('/', function(req, res) {
   characterController.list(function(resp) {
     res.json(resp);
-  });  
+  });
 });
 
 /* READ A SPECIFIC CHARACTER */
@@ -39,7 +39,7 @@ router.put('/like', function(req, res) {
 router.post('/add', function(req, res) {
     characterController.add(req.body.path, req.body.char_name, req.body.about, function(resp) {
       res.json(resp);
-    })
+    });
 });
 
 /* REMOVE A CHARACTER BY ID */

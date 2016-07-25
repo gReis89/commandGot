@@ -6,7 +6,7 @@ var http = require('http'),
     homeRouter = require('./routes/home'),
     bodyParser = require('body-parser');
 
-var port = 3000,
+var port = process.env.PORT || 8080,
     app = express();
 
 app.use(bodyParser.urlencoded({
@@ -14,15 +14,23 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-app.use('/characters', charRoutes);
-
 app.use(function(req, res, next) {
+    // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
     next();
 });
 
+app.use('/characters', charRoutes);
 app.get('/', function(req, res) {
     res.end("<h1>Welcome to CommandGOT API :)</h1>");
 });

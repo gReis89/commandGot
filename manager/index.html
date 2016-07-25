@@ -1,0 +1,123 @@
+<html ng-app="commandGotManager">
+<head>
+  <title>Teste</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+  <link href="css/style.css" rel="stylesheet">
+
+  <style>
+  #myTable_wrapper {/*width:800px;*/ margin: 20 auto;}
+  .dataTables_wrapper .dataTables_paginate .paginate_button {padding:0; margin:-1px;}
+  #avatar {
+      border-radius: 15px 50px;
+      background-size: 100%;
+      padding: 20px;
+      width: 150px;
+      height: 150px;
+      float: left;
+  }
+  .sorting_1 {background-color: transparent !important;}
+  </style>
+
+</head>
+<body style="padding:20px;">
+
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="javascript:navigation('list')">commandGot</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active tab_1"><a href="javascript:navigation('list')">Characters</a></li>
+      <li class="tab_2"><a href="javascript:navigation('add')">Insert new</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <table ng-controller="read_all" id="myTable" class="display" cellspacing="0">
+    <thead>
+      <tr>
+        <th style="width:190px;">Photo</th>
+        <th>Name</th>
+        <th>About</th>
+        <th>Likes</th>
+        <th>Views</th>
+        <th>Update</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>About</th>
+        <th>Likes</th>
+        <th>Views</th>
+        <th>Update</th>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr ng-repeat="char in characters" on-finish-render="ngRepeatFinished">
+        <td><div id="avatar" style="background-image:url({{char.path}});"></div></td>
+        <td>{{char.name}}</td>
+        <td>{{char.about}}</td>
+        <td>{{char.likes}}</td>
+        <td>{{char.visits}}</td>
+        <td><button class="btn btn-primary" ng-click="myFunc(char._id)">Update</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div id="div_add" style="display:none;">
+    <article ng-controller="AddController">
+        <form>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" placeholder="Char's Name" ng-model="name">
+            </div>
+            <div class="form-group">
+                <label>About</label>
+                <input type="text" class="form-control" placeholder="Tell a little about the character" ng-model="about">
+            </div>
+            <div class="form-group">
+                <label>Path</label>
+                <input type="text" class="form-control" placeholder="Put a image link of the character" ng-model="path">
+            </div>
+            <button type="submit" class="btn btn-default" ng-click="addChar()">Submit</button>
+        </form>
+
+        {{PostDataResponse}}
+    </article>
+  </div>
+
+  <div id="div_upd" style="display:none;">
+    <article ng-controller="UpdController">
+        <form>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" id='upd_name' class="form-control" placeholder="Char's Name" ng-model="name">
+            </div>
+            <div class="form-group">
+                <label>About</label>
+                <input type="text" id='upd_about' class="form-control" placeholder="Tell a little about the character" ng-model="about">
+            </div>
+            <div class="form-group">
+                <label>Path</label>
+                <input type="text" id='upd_path' class="form-control" placeholder="Put a image link of the character" ng-model="path">
+            </div>
+            <button type="submit" class="btn btn-default" ng-click="updChar()">Submit</button>
+        </form>
+
+        {{PostDataResponse}}
+    </article>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-1.12.3.js"></script>
+  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+
+</body>
+</html>
