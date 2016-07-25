@@ -30,3 +30,5 @@ app.get('/', function(req, res) {
 http.createServer(app).listen(port, function() {
     console.log("The winter is coming on port " + port);
 });
+
+module.exports = app;
